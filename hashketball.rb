@@ -180,6 +180,22 @@ teams.each { |index|
 end
 
 #####
+def team_names
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+team_name = [ ]
+teams.each { |index|
+  team_name.push(index[:team_name])
+}
+return team_name
+end
+
+#####
 def player_numbers(team_name)
 library = game_hash
   location=[]
@@ -188,10 +204,13 @@ library = game_hash
       location.push(loc)
       teams.push(team)
   }
-
+numbers = [ ]
 teams.each { |index|
-        if (index[:team_name] == team_name)
-            return index
-        end
+    index[:players].each {|inner_index|
+         if (index[:team_name] == team_name)
+          numbers.push(inner_index[:number])
+  end
 }
+}
+return numbers
 end
