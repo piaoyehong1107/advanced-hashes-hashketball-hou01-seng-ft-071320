@@ -1,4 +1,4 @@
-# Write your code below game_hash
+require "pry"
 def game_hash
   {
     home: {
@@ -126,4 +126,72 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored(player_name)
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+
+teams.each { |index|
+    index[:players].each {|inner_index|
+        if (inner_index[:player_name] == player_name)
+            return inner_index[:points]
+        end
+}
+}
+end
+#####
+def shoe_size(player_name)
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+
+teams.each { |index|
+    index[:players].each {|inner_index|
+        if (inner_index[:player_name] == player_name)
+            return inner_index[:shoe]
+        end
+}
+}
+end
+
+#####
+def team_colors(team_name)
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+
+teams.each { |index|
+        if (index[:team_name] == team_name)
+            return index[:colors]
+        end
+}
+end
+
+#####
+def player_numbers(team_name)
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+
+teams.each { |index|
+        if (index[:team_name] == team_name)
+            return index
+        end
+}
+end
