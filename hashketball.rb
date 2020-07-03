@@ -214,3 +214,40 @@ teams.each { |index|
 }
 return numbers
 end
+####
+def num_points_scored(player_name)
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+
+teams.each { |index|
+    index[:players].each {|inner_index|
+        if (inner_index[:player_name] == player_name)
+            return inner_index[:points]
+        end
+}
+}
+end
+#####
+
+def player_stats(player_name)
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+
+teams.each { |index|
+    index[:players].each {|inner_index|
+        if (inner_index[:player_name] == player_name)
+            return inner_index
+        end
+}
+}
+end
