@@ -251,3 +251,28 @@ teams.each { |index|
 }
 }
 end
+###
+def big_shoe_rebounds
+library = game_hash
+  location=[]
+  teams=[]
+  library.each{|loc,team|
+      location.push(loc)
+      teams.push(team)
+  }
+shoes = []
+teams.each { |index|
+  index[:players].each {|inner_index|
+        shoes.push (inner_index[:shoe])
+  }
+}
+teams.each { |index|
+  index[:players].each {|inner_index|
+         if (inner_index[:shoe]==shoes.max)
+            return inner_index[:rebounds]
+        end
+    }
+}
+end
+
+
