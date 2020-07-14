@@ -128,15 +128,9 @@ end
 
 def num_points_scored(player_name)
 library = game_hash
-  location=[]
-  teams=[]
   library.each{|loc,team|
-      location.push(loc)
-      teams.push(team)
-  }
-
-teams.each { |index|
-    index[:players].each {|inner_index|
+    team[:players].each {|inner_index|
+binding pry
         if (inner_index[:player_name] == player_name)
             return inner_index[:points]
         end
@@ -217,6 +211,23 @@ end
 ####
 def num_points_scored(player_name)
 library = game_hash
+  library = game_hash
+    values = [ ]
+    value =[ ]
+  library.each { |loc, teams|
+    values=values.push(teams[:players]) 
+    value= values[0].push(values[1])
+    }
+   
+indes = value.index { |h|
+h[:player_name] === player_name
+}
+value[indes][:points]
+end
+
+def team_colors(player_name)
+  library = game_hash
+
   location=[]
   teams=[]
   library.each{|loc,team|
@@ -225,6 +236,7 @@ library = game_hash
   }
 
 teams.each { |index|
+
     index[:players].each {|inner_index|
         if (inner_index[:player_name] == player_name)
             return inner_index[:points]
@@ -274,5 +286,7 @@ teams.each { |index|
     }
 }
 end
+
+
 
 
